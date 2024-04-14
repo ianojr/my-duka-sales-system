@@ -1,0 +1,14 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(135, 206, 235);
+}
+.navbar{
+    width: 100%;
+    height: 10vh;
+    background: #3399ff;
+    color: white;
+}

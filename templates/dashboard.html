@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="static/dashboard.css">
+</head>
+
+<body>
+    <div class="ripple-background">
+        <nav class="navbar">
+        </nav>
+    </div>
+
+    <div class="circle xxlarge shade1"></div>
+    <div class="circle xlarge shade2"></div>
+    <nav>
+
+        <nav class="navbar">
+            <h3>Here goes the navbar</h3>
+        </nav>
+
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class=flashes>
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+        <h1>Welcome to dashboard</h1>
+        <canvas id="bar-chart" width="800" height="450"></canvas>
+
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.min.js"
+            integrity="sha512-L0Shl7nXXzIlBSUUPpxrokqq4ojqgZFQczTYlGjzONGTDAcLremjwaWv5A+EDLnxhQzY5xUZPWLOLqYRkY0Cbw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+        <script>
+            // Bar chart
+            new Chart(document.getElementById("bar-chart"), {
+                type: 'bar',
+                data: {
+                    labels: {{name | safe}},
+                    datasets: [
+                        {
+                            label: "Profit",
+                            backgroundColor: ["#3e95cd", "#8e5ea2", "#3cba9f", "#e8c3b9", "#c45850"],
+                            data: {{profit | safe}}
+                        }
+                    ]
+                },
+                options: {
+                    legend: { display: false },
+                    title: {
+                        display: true,
+                        text: 'My Duka Profits and Loses'
+                    }
+                }
+            });
+        </script>
+</body>
+
+</html>

@@ -14,35 +14,57 @@
 </head>
 
 <body>
-    <div class="ripple-background">
-        <nav>
-        </nav>
-    </div>
+    <div class="logo1">
 
-    <div class="circle xxlarge shade1"></div>
-    <div class="circle xlarge shade2"></div>
-    <nav>
+        <div class="ripple-background">
+            <nav>
+            </nav>
+        </div>
+
+        <div class="circle xxlarge shade1"></div>
+        <div class="circle xlarge shade2"></div>
         <nav>
-            <input type="checkbox" id="check">
-            <label for="check" class="checkbtn">
-                <i class="fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
-            </label>
-            <a href="#" class="logo"><span>My </span>DUKA</a>
-            <ul>
-                <li><a class="active" href="#">Home</a></li>
-                <li><a href="#">Dashboard</a></li>
-                <li><a href="#">Products</a></li>
-                <li><a href="#">Sales</a></li>
-                <li><a href="#">Register</a></li>
-                <li><a href="#">Log In</a></li>
-            </ul>
+            <nav>
+                <input type="checkbox" id="check">
+                <label for="check" class="checkbtn">
+                    <i style="color: #ffffff;"></i>
+                </label>
+                <a href="/" class="logo"><small>My</small> DUKA</a>
+                <ul>
+                    <li><a class="active" href="/index">Home</a></li>
+                    <li><a href="/dashboard">Dashboard</a></li>
+                    <li><a href="/products">Products</a></li>
+                    <li><a href="/sales">Sales</a></li>
+                    <li><a href="/register">Register</a></li>
+                    <li><a href="/login">Log In</a></li>
+                </ul>
+            </nav>
         </nav>
-    </nav>
+
+
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener('mousemove', function (e) {
+            let body = document.querySelector('body');
+            let circle = document.createElement('span');
+            let x = e.offsetX;
+            let y = e.offsetY;
+            circle.style.left = x + "px";
+            circle.style.top = y + "px";
+            let size = Math.random() * 100;
+            circle.style.width = 20 + size + "px";
+            circle.style.height = 20 + size + "px";
+            body.appendChild(circle);
+            setTimeout(function () {
+                circle.remove();
+            }, 1800);
+        });
+    </script>
 </body>
 
 </html>

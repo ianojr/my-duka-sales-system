@@ -5,10 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Log In</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="static/login.css">
 </head>
 
 <body>
-    <h1>Log In</h1>
+    <nav class="navbar">
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i style="color: #ffffff;"></i>
+            </label>
+            <a href="/" class="logo"><small>My</small> DUKA</a>
+            <ul>
+                <li><a href="/index">Home</a></li>
+                <li><a href="/register">Register</a></li>
+                <li><a class="active" href="/login">Log In</a></li>
+            </ul>
+        </nav>
+    </nav>
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     <div class=flashes>
@@ -18,17 +36,19 @@
     </div>
     {% endif %}
     {% endwith %}
-    <form action="/login" method="post">
-        <label for="email_address"> Enter Email</label><br>
-        <input name="email_address" type="email" id="email_address" placeholder="name@example.com">
-        <br>
-        <h6></h6>
-        <label for="password">Password</label><br>
-        <input name="password" type="password" id="password" placeholder="Password">
-        <br>
-        <h6></h6>
-        <input type="submit" placeholder="Submit">
-    </form>
+    <div class="forms">
+        <form action="/login" method="post">
+            <label for="email_address"> Enter Email</label><br>
+            <input name="email_address" type="email" id="email_address" placeholder="name@example.com">
+            <br>
+            <h6></h6>
+            <label for="password">Password</label><br>
+            <input name="password" type="password" id="password" placeholder="Password">
+            <br>
+            <h6></h6>
+            <input type="submit" placeholder="Submit">
+        </form>
+    </div>
 </body>
 
 </html>
